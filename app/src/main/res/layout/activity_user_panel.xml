@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1f1e21"
+    tools:context=".userPanel">
+
+
+    <Button
+        android:id="@+id/AddUser"
+        android:layout_width="232dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginLeft="113dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginRight="113dp"
+        android:background="@drawable/mad"
+        android:text="Give feedback about the app"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/ChangeProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
+    <Button
+        android:id="@+id/ChangeProfile"
+        android:layout_width="214dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="113dp"
+        android:layout_marginLeft="113dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginRight="113dp"
+        android:background="@drawable/mad"
+        android:text="View feeback form"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddUser" />
+
+    <Button
+        android:id="@+id/Logout"
+        android:layout_width="213dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="163dp"
+        android:layout_marginLeft="163dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
+        android:background="@drawable/mad"
+        android:text="Logout"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ChangeProfile"
+        app:layout_constraintVertical_bias="0.422" />
+</androidx.constraintlayout.widget.ConstraintLayout>
