@@ -44,13 +44,10 @@ public class login extends AppCompatActivity {
         RegisterButton = (Button) findViewById(R.id.button2);
         InputPassword = (EditText) findViewById(R.id.editTextTextPersonName2);
         InputPhoneNumber = (EditText) findViewById(R.id.editTextTextPersonName);
-        AdminLink = (TextView) findViewById(R.id.adminLoginText);
-        NotAdminLink = (TextView) findViewById(R.id.userLoginText);
         loadingBar = new ProgressDialog(this);
 
         button1 = findViewById(R.id.button2);
         button2 = findViewById(R.id.button);
-
 
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -62,157 +59,17 @@ public class login extends AppCompatActivity {
             }
 
         });
-        /*
+
         button2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                Toast.makeText(login.this, "you are successfully login", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(login.this, profileView.class);
-                startActivity(intent);
-            }
-        });*/
-
-
-        LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(login.this, "you are successfully login", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(login.this, userPanel.class);
                 startActivity(intent);
-                //LoginUser();
-
             }
         });
 
 
-
-       /* LoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                LoginUser();
-            }
-        });*/
-
-       /* RegisterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(login.this, register.class);
-                startActivity(intent);
-            }
-        });
-
-        AdminLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                LoginButton.setText("Login Admin");
-                AdminLink.setVisibility(View.INVISIBLE);
-                NotAdminLink.setVisibility(View.VISIBLE);
-                parentDbName = "Admins";
-            }
-        });
-
-        NotAdminLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                LoginButton.setText("Login");
-                AdminLink.setVisibility(View.VISIBLE);
-                NotAdminLink.setVisibility(View.INVISIBLE);
-                parentDbName = "Users";
-            }
-        });
+    }
     }
 
-
-
-    private void LoginUser()
-    {
-        String phone = InputPhoneNumber.getText().toString();
-        String password = InputPassword.getText().toString();
-
-        if (TextUtils.isEmpty(phone))
-        {
-            Toast.makeText(this, "Please enter your phone number...", Toast.LENGTH_SHORT).show();
-        }
-        else if (TextUtils.isEmpty(password))
-        {
-            Toast.makeText(this, "Please enter your password...", Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            loadingBar.setTitle("Login Account");
-            loadingBar.setMessage("Please wait, while we are checking the credentials.");
-            loadingBar.setCanceledOnTouchOutside(false);
-            loadingBar.show();
-
-
-            AllowAccessToAccount(phone, password);
-        }
-    }
-
-
-
-    private void AllowAccessToAccount(final String Phone, final String password)
-    {
-
-        final DatabaseReference RootRef;
-        RootRef = FirebaseDatabase.getInstance().getReference();
-
-
-        RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                if (dataSnapshot.child(parentDbName).child(Phone).exists())
-                {
-                    Users usersData = dataSnapshot.child(parentDbName).child("Phone").getValue(Users.class);
-
-                    if (usersData.getPhone().equals(Phone))
-                    {
-                        if (usersData.getPassword().equals(password))
-                        {
-                            if (parentDbName.equals("Admins"))
-                            {
-                                Toast.makeText(login.this, "Welcome Admin, you are logged in Successfully...", Toast.LENGTH_SHORT).show();
-                                loadingBar.dismiss();
-
-                                Intent intent = new Intent(login.this,userPanel.class);
-                                startActivity(intent);
-
-                                /*Intent intent = new Intent(login.this, MainActivity4.class);
-                                startActivity(intent);*/
-       /*
-                            }
-                            else if (parentDbName.equals("Users"))
-                            {
-                                Toast.makeText(login.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
-                                loadingBar.dismiss();
-
-                                Intent intent = new Intent(login.this,userPanel.class);
-                                startActivity(intent);
-
-                            }
-                        }
-                        else
-                        {
-                            loadingBar.dismiss();
-                            Toast.makeText(login.this, "Password is incorrect.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }
-                else
-                {
-                    Toast.makeText(login.this, "Account with this " + Phone + " number do not exists.", Toast.LENGTH_SHORT).show();
-                    loadingBar.dismiss();
-        }
-    }
-
-    @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }*/
-    }
-}

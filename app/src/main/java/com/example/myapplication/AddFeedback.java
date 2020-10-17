@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -39,6 +40,9 @@ public class AddFeedback extends AppCompatActivity {
                 String name = Uname.getText().toString();
                 String feedback = Ufeedback.getText().toString();
 
+                if (TextUtils.isEmpty(Uname.getText().toString())){
+                    Toast.makeText(AddFeedback.this,"no empty details allowed",Toast.LENGTH_SHORT).show();
+                }else{
 
                 UserFeedback addFeedback = new UserFeedback(name,feedback);
 
@@ -46,7 +50,7 @@ public class AddFeedback extends AppCompatActivity {
                     reference.setValue(addFeedback);
                     Toast.makeText(AddFeedback.this,"your feedback is successfully added",Toast.LENGTH_SHORT).show();
 
-                }
+                }}
 
 
         });

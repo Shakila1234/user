@@ -3,9 +3,7 @@ package com.example.myapplication.Model;
 public class Users {
     private String Name, Password, Address,  Phone,Email;
 
-    public Users() {
 
-    }
 
     public Users(String name, String password, String address, String phone, String email) {
         this.Name = name;
